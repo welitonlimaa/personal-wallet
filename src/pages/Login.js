@@ -41,7 +41,7 @@ class Login extends React.Component {
       <div id="Form_Login">
         <br />
         <input
-          data-testid="data-testid=email-input"
+          data-testid="email-input"
           name="email"
           placeholder="alguem@dominio.com"
           value={ email }
@@ -49,7 +49,7 @@ class Login extends React.Component {
         />
         <br />
         <input
-          data-testid="data-testid=password-input"
+          data-testid="password-input"
           name="senha"
           placeholder="Senha"
           value={ senha }
