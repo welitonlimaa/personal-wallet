@@ -10,8 +10,8 @@ class Select extends Component {
       label,
       name,
       dataTestid,
-      // onChange,
-      // value,
+      onChange,
+      value,
       options,
     } = this.props;
     return (
@@ -23,8 +23,8 @@ class Select extends Component {
             name={ name }
             id={ name }
             required
-            // onChange={ onChange }
-            // value={ value }
+            onChange={ onChange }
+            defaultValue={ value }
           >
             {
               options.map((option, index) => (
@@ -42,8 +42,8 @@ Select.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   dataTestid: PropTypes.string.isRequired,
-  //   onChange: PropTypes.func.isRequired,
-  //   value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.string,
   ).isRequired,
