@@ -68,9 +68,9 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  ...state.user,
-});
+// const mapStateToProps = (state) => ({
+//   ...state.user,
+// });
 
 Login.propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -79,4 +79,4 @@ Login.propTypes = {
   }).isRequired,
 };
 
-export default connect(mapStateToProps)(Login);
+export default connect()(Login);
