@@ -44,3 +44,8 @@ export const changeStateExpenses = (data) => ({
   type: 'CHANGE_STATE_EXPENSES',
   payload: data,
 });
+
+export const deleteExpense = (data) => ({
+  type: 'DELETE_EXPENSE',
+  payload: data,
+});
