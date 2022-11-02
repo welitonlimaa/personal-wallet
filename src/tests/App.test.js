@@ -1,6 +1,4 @@
-// import React from 'react';
 import { screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 // import mockData from './helpers/mockData';
 import userEvent from '@testing-library/user-event';
 import { renderWithRouterAndRedux } from './helpers/renderWith';
@@ -50,7 +48,7 @@ describe('Página de Login', () => {
     expect(emailText).toBeInTheDocument();
   });
 
-  test('se o formulário de Login está disponível na tela', () => {
+  test('se o header é renderizado corretamente na tela', () => {
     renderWithRouterAndRedux(<Wallet />);
     const fieldEmail = screen.getByTestId('email-field');
     const fieldTotal = screen.getByTestId('total-field');
