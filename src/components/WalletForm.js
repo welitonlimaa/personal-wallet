@@ -90,6 +90,10 @@ class WalletForm extends Component {
     const newDespesas = despesas.filter((dado) => dado.id !== idDespesa);
     newDespesas.splice(idDespesa, 0, fullObj);
     dispatch(deleteEditExpense(newDespesas));
+    this.setState({
+      valor: '',
+      description: '',
+    });
   };
 
   render() {
@@ -102,7 +106,7 @@ class WalletForm extends Component {
       method,
       category,
     } = this.state;
-    console.log(editor, editar);
+
     const metodos = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
     const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
 
@@ -119,7 +123,7 @@ class WalletForm extends Component {
     const ButtonEdit = (
       <button
         type="button"
-        // data-testid="button-adc"
+        data-testid="button-edt"
         onClick={ this.editarExpense }
       >
         Editar despesa
@@ -154,7 +158,7 @@ class WalletForm extends Component {
           label="Moeda:"
           id="currency"
           name="moeda"
-          value={ editor !== editar ? this.getDataToEdit().currency : moeda }
+          value={ editor !== editar ? console.log(this.getDataToEdit().currency) : moeda }
           options={ currency }
           onChange={ this.onInputChange }
         />

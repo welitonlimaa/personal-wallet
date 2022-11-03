@@ -6,14 +6,6 @@ import App from '../App';
 import Wallet from '../pages/Wallet';
 
 describe('Página de Login', () => {
-  // beforeEach(() => {
-  //   global.fetch = jest.fn(mockData);
-  // });
-
-  // afterEach(() => {
-  //   global.fetch.mockClear();
-  // });
-
   test('se o formulário de Login está disponível na tela', () => {
     renderWithRouterAndRedux(<App />);
     const inputEmail = screen.getByTestId('email-input');
@@ -97,39 +89,50 @@ describe('Página de Login', () => {
     expect(buttonsText).toBeInTheDocument();
   });
 
-  test('se ao clicar no botão Adicionar despesa a despesa é adicionada', () => {
-    delete mockData.USDT;
-    const dataArray = Object.values(mockData);
-    const currency = dataArray.map((dado) => dado.code);
+  delete mockData.USDT;
+  const dataArray = Object.values(mockData);
+  const currency = dataArray.map((dado) => dado.code);
 
-    const obj = {
-      id: 0,
-      value: '30',
-      description: 'pizza',
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
-      exchangeRates: mockData,
-    };
+  const obj = {
+    id: 0,
+    value: '35',
+    description: 'pizza',
+    currency: 'USD',
+    method: 'Dinheiro',
+    tag: 'Alimentação',
+    exchangeRates: mockData,
+  };
 
-    const state = {
-      wallet: { currencies: currency, expenses: [obj] },
-    };
+  const state = {
+    wallet: {
+      currencies: currency,
+      expenses: [obj],
+      editor: false,
+      idToEdit: 0,
+    },
+  };
 
+  test('se ao clicar no botão /Adicionar despesa/ a despesa é adicionada', async () => {
     renderWithRouterAndRedux(<Wallet />, { initialState: state });
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      json: jest.fn().mockResolvedValue(mockData),
+    });
+    const textDescrip = screen.getByText('pizza');
+    expect(textDescrip).toBeInTheDocument();
+
     const inputValue = screen.getByTestId('value-input');
     const inputDescrip = screen.getByTestId('description-input');
-    // const buttonAdc = screen.getByTestId('button-adc');
+    const buttonAdc = screen.getByTestId('button-adc');
 
     userEvent.type(inputValue, '30');
-    userEvent.type(inputDescrip, 'Salgados');
-    // userEvent.click(buttonAdc);
+    userEvent.type(inputDescrip, 'Salgado');
 
-    const textDescrip = screen.getByText('pizza');
-    // const textDescrip2 = screen.getByText('Salgados');
-    expect(textDescrip).toBeInTheDocument();
-    // expect(textDescrip2).toBeInTheDocument();
     expect(inputValue.value).toBe('30');
-    expect(inputDescrip.value).toBe('Salgados');
+    expect(inputDescrip.value).toBe('Salgado');
+
+    userEvent.click(buttonAdc);
+    const textDescrip2 = await screen.findByText('Salgado');
+
+    expect(textDescrip2).toBeInTheDocument();
   });
 });
