@@ -117,17 +117,19 @@ describe('Página de Login', () => {
     };
 
     renderWithRouterAndRedux(<Wallet />, { initialState: state });
-    // const inputValue = screen.getByTestId('value-input');
-    // const inputDescrip = screen.getByTestId('description-input');
+    const inputValue = screen.getByTestId('value-input');
+    const inputDescrip = screen.getByTestId('description-input');
     // const buttonAdc = screen.getByTestId('button-adc');
 
-    // userEvent.type(inputValue, 30);
-    // userEvent.type(inputDescrip, 'Salgados');
+    userEvent.type(inputValue, '30');
+    userEvent.type(inputDescrip, 'Salgados');
     // userEvent.click(buttonAdc);
 
     const textDescrip = screen.getByText('pizza');
     // const textDescrip2 = screen.getByText('Salgados');
     expect(textDescrip).toBeInTheDocument();
     // expect(textDescrip2).toBeInTheDocument();
+    expect(inputValue.value).toBe('30');
+    expect(inputDescrip.value).toBe('Salgados');
   });
 });

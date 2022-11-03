@@ -5,14 +5,28 @@ import WalletForm from '../components/WalletForm';
 import Table from '../components/Table';
 
 class Wallet extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      editar: false,
+    };
+  }
+
+  changeStateEditar = (status) => {
+    this.setState({
+      editar: status,
+    });
+  };
+
   render() {
+    const { editar } = this.state;
     return (
       <div>
         <Header />
-        <WalletForm />
+        <WalletForm changeStateEditar={ this.changeStateEditar } editar={ editar } />
         <br />
         <br />
-        <Table />
+        <Table changeStateEditar={ this.changeStateEditar } />
       </div>
     );
   }

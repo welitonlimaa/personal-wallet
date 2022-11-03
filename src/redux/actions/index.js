@@ -45,7 +45,17 @@ export const changeStateExpenses = (data) => ({
   payload: data,
 });
 
-export const deleteExpense = (data) => ({
-  type: 'DELETE_EXPENSE',
+export const deleteEditExpense = (data) => ({
+  type: 'DELETE_AND_EDIT_EXPENSE',
   payload: data,
 });
+
+export const setIdExp = (id) => ({
+  type: 'SET_ID_EXPENSE',
+  payload: id,
+});
+
+// export const changeEditExpense = (data) => ({
+//   type: 'EDIT_EXPENSE',
+//   payload: data,
+// });

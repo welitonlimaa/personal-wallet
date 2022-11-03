@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteExpense } from '../redux/actions';
+import { deleteEditExpense, setIdExp } from '../redux/actions';
 
 class Table extends Component {
   excluirExpense = (id) => {
-    const { despesas, dispatch } = this.props;
+    const { despesas, dispatch, changeStateEditar } = this.props;
     const newDespesas = despesas.filter((dado) => dado.id !== id);
-    dispatch(deleteExpense(newDespesas));
+    dispatch(deleteEditExpense(newDespesas));
+    changeStateEditar(false);
+  };
+
+  setIdExpense = (id) => {
+    const { dispatch } = this.props;
+    dispatch(setIdExp(id));
   };
 
   render() {
@@ -37,7 +43,13 @@ class Table extends Component {
               <td>{(Number(value) * Number(exchangeRates[currency].ask)).toFixed(2)}</td>
               <td>{currency}</td>
               <td>
-                Editar
+                <button
+                  type="button"
+                  data-testid="edit-btn"
+                  onClick={ () => this.setIdExpense(id) }
+                >
+                  Editar
+                </button>
                 <button
                   type="button"
                   data-testid="delete-btn"
@@ -83,6 +95,7 @@ const mapStateToProps = (state) => ({
 Table.propTypes = {
   dispatch: PropTypes.func.isRequired,
   despesas: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+  changeStateEditar: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Table);

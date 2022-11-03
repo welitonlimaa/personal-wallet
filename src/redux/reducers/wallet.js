@@ -13,9 +13,26 @@ const wallet = (state = INITIAL_STATE, action) => {
   case 'CHANGE_STATE_EXPENSES': {
     return { ...state, expenses: [...state.expenses, action.payload] };
   }
-  case 'DELETE_EXPENSE': {
-    return { ...state, expenses: action.payload };
+  case 'DELETE_AND_EDIT_EXPENSE': {
+    return { ...state,
+      expenses: action.payload,
+      editor: false,
+    };
   }
+  case 'SET_ID_EXPENSE': {
+    return {
+      ...state,
+      idToEdit: action.payload,
+      editor: true,
+    };
+  }
+  // case 'EDIT_EXPENSE': {
+  //   return {
+  //     ...state,
+  //     expenses: action.payload,
+  //     editor: false,
+  //   };
+  // }
   default:
     return state;
   }
