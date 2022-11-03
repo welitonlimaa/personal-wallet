@@ -132,6 +132,7 @@ class WalletForm extends Component {
         />
         <button
           type="button"
+          data-testid="button-adc"
           onClick={ this.insertDataStore }
         >
           Adicionar despesa
