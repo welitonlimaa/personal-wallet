@@ -39,7 +39,9 @@ describe('Página de Login', () => {
     const emailText = screen.getByText(EMAIL_USER);
     expect(emailText).toBeInTheDocument();
   });
+});
 
+describe('Página Wallet', () => {
   test('se o header é renderizado corretamente na tela', () => {
     renderWithRouterAndRedux(<Wallet />);
     const fieldEmail = screen.getByTestId('email-field');
@@ -53,14 +55,10 @@ describe('Página de Login', () => {
 
   test('se o formulario é renderizado corretamente na tela', () => {
     renderWithRouterAndRedux(<Wallet />);
-    const inputValue = screen.getByTestId('value-input');
-    const inputDescrip = screen.getByTestId('description-input');
     const selectCurrency = screen.getByTestId('currency-input');
     const selectMethod = screen.getByTestId('method-input');
     const selectTag = screen.getByTestId('tag-input');
 
-    expect(inputValue).toBeInTheDocument();
-    expect(inputDescrip).toBeInTheDocument();
     expect(selectCurrency).toBeInTheDocument();
     expect(selectMethod).toBeInTheDocument();
     expect(selectTag).toBeInTheDocument();
@@ -112,17 +110,27 @@ describe('Página de Login', () => {
     },
   };
 
-  test('se ao clicar no botão /Adicionar despesa/ a despesa é adicionada', async () => {
-    renderWithRouterAndRedux(<Wallet />, { initialState: state });
+  beforeEach(() => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       json: jest.fn().mockResolvedValue(mockData),
     });
+  });
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  test('se ao clicar no botão /Adicionar despesa/ a despesa é adicionada', async () => {
+    renderWithRouterAndRedux(<Wallet />, { initialState: state });
+
     const textDescrip = screen.getByText('pizza');
     expect(textDescrip).toBeInTheDocument();
 
     const inputValue = screen.getByTestId('value-input');
     const inputDescrip = screen.getByTestId('description-input');
     const buttonAdc = screen.getByTestId('button-adc');
+    expect(inputValue).toBeInTheDocument();
+    expect(inputDescrip).toBeInTheDocument();
 
     userEvent.type(inputValue, '30');
     userEvent.type(inputDescrip, 'Salgado');
@@ -134,5 +142,40 @@ describe('Página de Login', () => {
     const textDescrip2 = await screen.findByText('Salgado');
 
     expect(textDescrip2).toBeInTheDocument();
+  });
+
+  test('se é possível editar uma despesa', async () => {
+    renderWithRouterAndRedux(<Wallet />, { initialState: state });
+
+    const buttonEditar = await screen.findAllByTestId('edit-btn');
+    expect(buttonEditar[0]).toBeInTheDocument();
+    userEvent.click(buttonEditar[0]);
+
+    const editarDespesaBtn = screen.getByTestId('button-edt');
+    expect(editarDespesaBtn).toBeInTheDocument();
+
+    const inputValue = screen.getByTestId('value-input');
+    userEvent.clear(inputValue);
+    userEvent.type(inputValue, '20');
+    expect(inputValue.value).toBe('20');
+
+    userEvent.click(editarDespesaBtn);
+
+    const textValue = screen.getByText('20.00');
+    expect(textValue).toBeInTheDocument();
+  });
+
+  test('se é possível excluir uma despesa', () => {
+    renderWithRouterAndRedux(<Wallet />, { initialState: state });
+
+    const textValue = screen.getByText('35.00');
+    const textDescrip = screen.getByText('pizza');
+
+    const buttonExcluir = screen.getAllByTestId('delete-btn');
+    expect(buttonExcluir[0]).toBeInTheDocument();
+    userEvent.click(buttonExcluir[0]);
+
+    expect(textValue).not.toBeInTheDocument();
+    expect(textDescrip).not.toBeInTheDocument();
   });
 });
