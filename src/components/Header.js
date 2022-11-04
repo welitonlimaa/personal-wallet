@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import logo from '../style/images/logo.png';
 
 class Header extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     soma: 0,
-  //   };
-  // }
-
   render() {
     const { emailUser, despesas } = this.props;
     let soma = 0;
@@ -21,10 +15,14 @@ class Header extends Component {
     }
 
     return (
-      <div>
+      <div id="header">
+        <img src={ logo } alt="logo" />
+        <div>
+          <span>Total de despesas: </span>
+          <span data-testid="total-field">{soma.toFixed(2)}</span>
+          <span data-testid="header-currency-field"> BRL</span>
+        </div>
         <p data-testid="email-field">{emailUser}</p>
-        <p data-testid="total-field">{soma.toFixed(2)}</p>
-        <p data-testid="header-currency-field">BRL</p>
       </div>
     );
   }

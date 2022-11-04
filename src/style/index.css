@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./images/back-img.jpg);
+}
+
+#form-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 50%;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.74);
+}
+
+#form-login input {
+  width: 50%;
+  height: 9%;
+  border-radius: 5px;
+  border: solid 2px rgba(0, 28, 107, 1);
+}
+
+#form-login input::placeholder {
+  color: rgba(0, 28, 107, 1);
+  left: 10px;
+}
+
+#form-login button {
+  width: 52%;
+  height: 10%;
+  color: white;
+  background: rgba(0, 28, 107, 1);
+  border-radius: 5px;
+}
+
+#form-login button:hover {
+  background: rgb(26, 60, 153);
+}
+
+#body-wallet {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-image: url(./images/back-img.jpg);
+}
+
+.container-wallet {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 70%;
+  border-radius: 10px;
+  background: rgba(0, 28, 107, 1);
+}
+
+#container-form {
+  position: relative;
+  z-index: 2;
+  float: initial;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.74);
+}
+
+#header {
+  width: 80%;
+  margin-top: -2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#container-wallet-form {
+  width: 100%;
+  height: 35%;
+  margin-top: -13%;
+  background: rgba(0, 0, 0, 0.807);
+}
+
+.form-wallet {
+  width: 80%;
+  height: 30%;
+}
+
+#container-table {
+  margin-top: 10%;
+  width: 100%;
+}
+
+#container-table table {
+  position: absolute;
+  margin-left: 7%;
+  width: 85%;
+}

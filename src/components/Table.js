@@ -66,8 +66,8 @@ class Table extends Component {
       );
     }
     return (
-      <div>
-        <table border="1">
+      <div id="container-table">
+        <table>
           <thead>
             <tr>
               <th>Descrição</th>

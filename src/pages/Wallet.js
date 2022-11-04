@@ -21,12 +21,14 @@ class Wallet extends React.Component {
   render() {
     const { editar } = this.state;
     return (
-      <div>
-        <Header />
-        <WalletForm changeStateEditar={ this.changeStateEditar } editar={ editar } />
-        <br />
-        <br />
-        <Table changeStateEditar={ this.changeStateEditar } />
+      <div id="body-wallet">
+        <div id="container-form">
+          <Header />
+          <WalletForm changeStateEditar={ this.changeStateEditar } editar={ editar } />
+        </div>
+        <div className="container-wallet">
+          <Table changeStateEditar={ this.changeStateEditar } />
+        </div>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeUser } from '../redux/actions';
+import logo from '../style/images/logo.png';
 
 class Login extends React.Component {
   constructor() {
@@ -38,32 +39,35 @@ class Login extends React.Component {
     }
 
     return (
-      <div id="Form_Login">
-        <br />
-        <input
-          data-testid="email-input"
-          name="email"
-          placeholder="alguem@dominio.com"
-          value={ email }
-          onChange={ this.onInputChange }
-        />
-        <br />
-        <input
-          data-testid="password-input"
-          name="senha"
-          placeholder="Senha"
-          value={ senha }
-          onChange={ this.onInputChange }
-        />
-        <br />
-        <button
-          type="button"
-          disabled={ isDisabled }
-          onClick={ this.onSubmit }
-        >
-          Entrar
-        </button>
-      </div>
+      <main>
+        <form id="form-login">
+          <img src={ logo } alt="logo" />
+          <br />
+          <input
+            data-testid="email-input"
+            name="email"
+            placeholder="E-mail"
+            value={ email }
+            onChange={ this.onInputChange }
+          />
+          <br />
+          <input
+            data-testid="password-input"
+            name="senha"
+            placeholder="Senha"
+            value={ senha }
+            onChange={ this.onInputChange }
+          />
+          <br />
+          <button
+            type="button"
+            disabled={ isDisabled }
+            onClick={ this.onSubmit }
+          >
+            Entrar
+          </button>
+        </form>
+      </main>
     );
   }
 }

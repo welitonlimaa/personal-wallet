@@ -17,22 +17,20 @@ class Select extends Component {
     return (
       <label htmlFor={ name } className="label">
         { label }
-        <div className="select">
-          <select
-            data-testid={ dataTestid }
-            name={ name }
-            id={ name }
-            required
-            onChange={ onChange }
-            defaultValue={ value }
-          >
-            {
-              options.map((option, index) => (
-                <option key={ index }>{ option }</option>
-              ))
-            }
-          </select>
-        </div>
+        <select
+          data-testid={ dataTestid }
+          name={ name }
+          id={ name }
+          required
+          onChange={ onChange }
+          defaultValue={ value }
+        >
+          {
+            options.map((option, index) => (
+              <option key={ index }>{ option }</option>
+            ))
+          }
+        </select>
       </label>
     );
   }

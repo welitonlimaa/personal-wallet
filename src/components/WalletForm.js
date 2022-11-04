@@ -12,8 +12,8 @@ class WalletForm extends Component {
       valor: '',
       description: '',
       moeda: 'USD',
-      method: '',
-      category: '',
+      method: 'Dinheiro',
+      category: 'Alimentação',
     };
   }
 
@@ -98,14 +98,21 @@ class WalletForm extends Component {
 
   render() {
     const { currency, editor, editar } = this.props;
-
-    const {
+    let {
       valor,
       description,
       moeda,
       method,
       category,
     } = this.state;
+
+    if (editor === true && editar !== true) {
+      valor = this.getDataToEdit().value;
+      description = this.getDataToEdit().description;
+      moeda = this.getDataToEdit().currency;
+      method = this.getDataToEdit().method;
+      category = this.getDataToEdit().tag;
+    }
 
     const metodos = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
     const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
@@ -130,58 +137,59 @@ class WalletForm extends Component {
       </button>
     );
     return (
-      <form>
-        <label htmlFor="valor">
-          Valor:
-          <input
-            data-testid="value-input"
-            name="valor"
-            id="valor"
-            value={ editor !== editar ? this.getDataToEdit().value : valor }
+      <div id="container-wallet-form">
+        <form className="form-wallet">
+          <label htmlFor="description">
+            Descrição da despesa:
+            <input
+              data-testid="description-input"
+              name="description"
+              id="description"
+              value={ description }
+              onChange={ this.onInputChange }
+            />
+          </label>
+          <label htmlFor="valor">
+            Valor:
+            <input
+              data-testid="value-input"
+              type="number"
+              name="valor"
+              id="valor"
+              value={ valor }
+              onChange={ this.onInputChange }
+            />
+          </label>
+          <Select
+            dataTestid="currency-input"
+            label="Moeda:"
+            id="currency"
+            name="moeda"
+            value={ moeda }
+            options={ currency }
             onChange={ this.onInputChange }
           />
-        </label>
-        <br />
-        <label htmlFor="description">
-          Descrição:
-          <input
-            data-testid="description-input"
-            name="description"
-            id="description"
-            value={ editor !== editar ? this.getDataToEdit().description : description }
+          <Select
+            dataTestid="method-input"
+            label="Método de Pagamento:"
+            id="method"
+            name="method"
+            value={ method }
+            options={ metodos }
             onChange={ this.onInputChange }
           />
-        </label>
-        <br />
-        <Select
-          dataTestid="currency-input"
-          label="Moeda:"
-          id="currency"
-          name="moeda"
-          value={ editor !== editar ? console.log(this.getDataToEdit().currency) : moeda }
-          options={ currency }
-          onChange={ this.onInputChange }
-        />
-        <Select
-          dataTestid="method-input"
-          label="Método de Pagamento:"
-          id="method"
-          name="method"
-          value={ editor !== editar ? this.getDataToEdit().method : method }
-          options={ metodos }
-          onChange={ this.onInputChange }
-        />
-        <Select
-          dataTestid="tag-input"
-          label="Categoria:"
-          id="tag"
-          name="category"
-          value={ editor !== editar ? this.getDataToEdit().tag : category }
-          options={ tags }
-          onChange={ this.onInputChange }
-        />
-        { editor ? ButtonEdit : ButtonAdc }
-      </form>
+          <Select
+            dataTestid="tag-input"
+            label="Categoria da despesa:"
+            id="tag"
+            name="category"
+            value={ category }
+            options={ tags }
+            onChange={ this.onInputChange }
+          />
+          { editor ? ButtonEdit : ButtonAdc }
+        </form>
+      </div>
     );
   }
 }
