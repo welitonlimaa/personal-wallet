@@ -37,11 +37,11 @@ main {
   width: 50%;
   height: 9%;
   border-radius: 5px;
-  border: solid 2px rgba(0, 28, 107, 1);
+  border: solid 2px rgb(0, 18, 3);
 }
 
 #form-login input::placeholder {
-  color: rgba(0, 28, 107, 1);
+  color: rgb(0, 18, 3);
   left: 10px;
 }
 
@@ -49,12 +49,12 @@ main {
   width: 52%;
   height: 10%;
   color: white;
-  background: rgba(0, 28, 107, 1);
+  background: rgb(0, 18, 3);
   border-radius: 5px;
 }
 
 #form-login button:hover {
-  background: rgb(26, 60, 153);
+  background: rgb(24, 50, 28);
 }
 
 #body-wallet {
@@ -62,7 +62,7 @@ main {
   width: 100%;
   height: 100%;
   color: white;
-  background-image: url(./images/back-img.jpg);
+  background-image: url(./images/tela.jpg);
 }
 
 .container-wallet {
@@ -74,18 +74,18 @@ main {
   justify-content: center;
   align-items: center;
   width: 90%;
-  height: 70%;
+  height: unset;
   border-radius: 10px;
-  background: rgba(0, 28, 107, 1);
+  background: rgb(0, 18, 3);
 }
 
 #container-form {
-  position: relative;
+  position: absolute;
   z-index: 2;
   float: initial;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   left: 10%;
   width: 80%;
@@ -95,32 +95,102 @@ main {
 }
 
 #header {
+  position: absolute;
   width: 80%;
-  margin-top: -2%;
+  margin-top: 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #container-wallet-form {
+  position: absolute;
   width: 100%;
-  height: 35%;
-  margin-top: -13%;
-  background: rgba(0, 0, 0, 0.807);
+  height: 60%;
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: blue; */
 }
 
 .form-wallet {
   width: 80%;
-  height: 30%;
+  height: 100%;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: aliceblue; */
+}
+
+.form-wallet #description {
+  margin-left: 5px;
+  width: 200px;
+  height: 20px;
+}
+
+.form-wallet #valor {
+  margin-left: 5px;
+  width: 100px;
+  height: 20px;
+}
+
+.form-wallet div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: aquamarine; */
+}
+
+.form-wallet div label {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-wallet div #moeda {
+  margin: 5px;
+  width: 100px;
+  height: 30px;
+}
+
+.form-wallet div #method {
+  margin: 5px;
+  width: 200px;
+  height: 30px;
+}
+
+.form-wallet div #category {
+  margin: 5px;
+  width: 200px;
+  height: 30px;
+}
+
+#container-wallet-form button {
+  width: 400px;
+  height: 70px;
+  margin: 30px;
+  color: white;
+  background: rgba(3, 107, 82, 1);
+  border: solid 1px white;
+  border-radius: 5px;
 }
 
 #container-table {
-  margin-top: 10%;
+  padding-top: 30%;
   width: 100%;
+  height: fit-content;
 }
 
 #container-table table {
-  position: absolute;
+  /* position: absolute; */
   margin-left: 7%;
+  margin-top: -8%;
   width: 85%;
 }

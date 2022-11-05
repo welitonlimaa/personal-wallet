@@ -160,35 +160,37 @@ class WalletForm extends Component {
               onChange={ this.onInputChange }
             />
           </label>
-          <Select
-            dataTestid="currency-input"
-            label="Moeda:"
-            id="currency"
-            name="moeda"
-            value={ moeda }
-            options={ currency }
-            onChange={ this.onInputChange }
-          />
-          <Select
-            dataTestid="method-input"
-            label="Método de Pagamento:"
-            id="method"
-            name="method"
-            value={ method }
-            options={ metodos }
-            onChange={ this.onInputChange }
-          />
-          <Select
-            dataTestid="tag-input"
-            label="Categoria da despesa:"
-            id="tag"
-            name="category"
-            value={ category }
-            options={ tags }
-            onChange={ this.onInputChange }
-          />
-          { editor ? ButtonEdit : ButtonAdc }
+          <div>
+            <Select
+              dataTestid="currency-input"
+              label="Moeda:"
+              id="currency"
+              name="moeda"
+              value={ moeda }
+              options={ currency }
+              onChange={ this.onInputChange }
+            />
+            <Select
+              dataTestid="method-input"
+              label="Método de Pagamento:"
+              id="method"
+              name="method"
+              value={ method }
+              options={ metodos }
+              onChange={ this.onInputChange }
+            />
+            <Select
+              dataTestid="tag-input"
+              label="Categoria da despesa:"
+              id="tag"
+              name="category"
+              value={ category }
+              options={ tags }
+              onChange={ this.onInputChange }
+            />
+          </div>
         </form>
+        { editor ? ButtonEdit : ButtonAdc }
       </div>
     );
   }

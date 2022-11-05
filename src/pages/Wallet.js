@@ -27,6 +27,7 @@ class Wallet extends React.Component {
           <WalletForm changeStateEditar={ this.changeStateEditar } editar={ editar } />
         </div>
         <div className="container-wallet">
+          {/* <div id="container">{}</div> */}
           <Table changeStateEditar={ this.changeStateEditar } />
         </div>
       </div>

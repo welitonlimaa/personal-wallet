@@ -17,6 +17,7 @@ class Select extends Component {
     return (
       <label htmlFor={ name } className="label">
         { label }
+        <br />
         <select
           data-testid={ dataTestid }
           name={ name }
