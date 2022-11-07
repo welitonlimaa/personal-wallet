@@ -14,6 +14,7 @@ class WalletForm extends Component {
       moeda: 'USD',
       method: 'Dinheiro',
       category: 'Alimentação',
+      // editarStatus: false,
     };
   }
 
@@ -29,11 +30,13 @@ class WalletForm extends Component {
       changeStateEditar(true);
       this.setState({
         [name]: value,
+        // editarStatus: false,
       });
     } else {
       changeStateEditar(false);
       this.setState({
         [name]: value,
+        // editarStatus: false,
       });
     }
   };
@@ -105,6 +108,7 @@ class WalletForm extends Component {
       method,
       category,
     } = this.state;
+    console.log(valor);
 
     if (editor === true && editar !== true) {
       valor = this.getDataToEdit().value;

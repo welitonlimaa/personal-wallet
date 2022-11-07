@@ -11,7 +11,7 @@ import store from './redux/store';
 ReactDOM
   .createRoot(document.getElementById('root'))
   .render(
-    <BrowserRouter>
+    <BrowserRouter basename={ process.env.PUBLIC_URL }>
       <Provider store={ store }>
         <App />
       </Provider>
