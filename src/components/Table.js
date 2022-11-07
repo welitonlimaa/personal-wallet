@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteEditExpense, setIdExp } from '../redux/actions';
+import excluirImg from '../style/images/excluir.png';
+import editarImg from '../style/images/editar.png';
 
 class Table extends Component {
   excluirExpense = (id) => {
@@ -31,17 +33,17 @@ class Table extends Component {
             tag,
             exchangeRates,
           } = dado;
-
+          const coin = exchangeRates[currency].name.split('/R');
           return (
             <tr key={ id }>
               <td>{description}</td>
               <td>{tag}</td>
               <td>{method}</td>
               <td>{Number(value).toFixed(2)}</td>
-              <td>{exchangeRates[currency].name}</td>
+              <td>{coin[0]}</td>
               <td>{Number(exchangeRates[currency].ask).toFixed(2)}</td>
               <td>{(Number(value) * Number(exchangeRates[currency].ask)).toFixed(2)}</td>
-              <td>{currency}</td>
+              <td>Real</td>
               <td>
                 <button
                   type="button"
@@ -49,7 +51,7 @@ class Table extends Component {
                   data-testid="edit-btn"
                   onClick={ () => this.setIdExpense(id) }
                 >
-                  Editar
+                  <img src={ editarImg } alt="botão editar" id="btn-editar" />
                 </button>
                 <button
                   type="button"
@@ -57,7 +59,7 @@ class Table extends Component {
                   data-testid="delete-btn"
                   onClick={ () => this.excluirExpense(id) }
                 >
-                  Excluir
+                  <img src={ excluirImg } alt="botão excluir" id="btn-excluir" />
                 </button>
               </td>
             </tr>

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(24, 50, 28);
 }
 
 code {
@@ -12,185 +13,223 @@ code {
     monospace;
 }
 
-main {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(./images/back-img.jpg);
-}
+@media (min-width: 920px) {
+  main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./images/back-img.jpg);
+  }
 
-#form-login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 50%;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.74);
-}
+  #container-table-mobile {
+    display: none;
+  }
 
-#form-login input {
-  width: 50%;
-  height: 9%;
-  border-radius: 5px;
-  border: solid 2px rgb(0, 18, 3);
-}
+  #form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 50%;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.74);
+  }
 
-#form-login input::placeholder {
-  color: rgb(0, 18, 3);
-  left: 10px;
-}
+  #form-login input {
+    width: 50%;
+    height: 9%;
+    border-radius: 5px;
+    border: solid 2px rgb(0, 18, 3);
+  }
 
-#form-login button {
-  width: 52%;
-  height: 10%;
-  color: white;
-  background: rgb(0, 18, 3);
-  border-radius: 5px;
-}
+  #form-login input::placeholder {
+    color: rgb(0, 18, 3);
+    left: 10px;
+  }
 
-#form-login button:hover {
-  background: rgb(24, 50, 28);
-}
+  #form-login button {
+    width: 52%;
+    height: 10%;
+    color: white;
+    background: rgb(0, 18, 3);
+    border-radius: 5px;
+  }
 
-#body-wallet {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  color: white;
-  background-image: url(./images/tela.jpg);
-}
+  #form-login button:hover {
+    background: rgb(24, 50, 28);
+  }
 
-.container-wallet {
-  position: absolute;
-  top: 25%;
-  left: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  height: unset;
-  border-radius: 10px;
-  background: rgb(0, 18, 3);
-}
+  #body-wallet {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-image: url(./images/tela.jpg);
+  }
 
-#container-form {
-  position: absolute;
-  z-index: 2;
-  float: initial;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  left: 10%;
-  width: 80%;
-  height: 60%;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.74);
-}
+  .container-wallet {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: unset;
+    border-radius: 10px;
+    background: rgb(0, 18, 3);
+  }
 
-#header {
-  position: absolute;
-  width: 80%;
-  margin-top: 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  #container-form {
+    position: absolute;
+    z-index: 2;
+    float: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    left: 10%;
+    width: 80%;
+    height: 60%;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.74);
+  }
 
-#container-wallet-form {
-  position: absolute;
-  width: 100%;
-  height: 60%;
-  margin-top: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: blue; */
-}
+  #header {
+    position: absolute;
+    width: 80%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.form-wallet {
-  width: 80%;
-  height: 100%;
-  margin: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: aliceblue; */
-}
+  #container-wallet-form {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: blue; */
+  }
 
-.form-wallet #description {
-  margin-left: 5px;
-  width: 200px;
-  height: 20px;
-}
+  .form-wallet {
+    width: 80%;
+    height: 100%;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aliceblue; */
+  }
 
-.form-wallet #valor {
-  margin-left: 5px;
-  width: 100px;
-  height: 20px;
-}
+  .form-wallet #description {
+    margin-left: 5px;
+    width: 200px;
+    height: 20px;
+  }
 
-.form-wallet div {
-  width: 100%;
-  height: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: aquamarine; */
-}
+  .form-wallet #valor {
+    margin-left: 5px;
+    width: 100px;
+    height: 20px;
+  }
 
-.form-wallet div label {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
+  .form-wallet div {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aquamarine; */
+  }
 
-.form-wallet div #moeda {
-  margin: 5px;
-  width: 100px;
-  height: 30px;
-}
+  .form-wallet div label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.form-wallet div #method {
-  margin: 5px;
-  width: 200px;
-  height: 30px;
-}
+  .form-wallet div #moeda {
+    margin: 5px;
+    width: 100px;
+    height: 30px;
+  }
 
-.form-wallet div #category {
-  margin: 5px;
-  width: 200px;
-  height: 30px;
-}
+  .form-wallet div #method {
+    margin: 5px;
+    width: 200px;
+    height: 30px;
+  }
 
-#container-wallet-form button {
-  width: 400px;
-  height: 70px;
-  margin: 30px;
-  color: white;
-  background: rgba(3, 107, 82, 1);
-  border: solid 1px white;
-  border-radius: 5px;
-}
+  .form-wallet div #category {
+    margin: 5px;
+    width: 200px;
+    height: 30px;
+  }
 
-#container-table {
-  padding-top: 30%;
-  width: 100%;
-  height: fit-content;
-}
+  #container-wallet-form button {
+    width: 400px;
+    height: 70px;
+    margin: 30px;
+    color: white;
+    background: rgba(3, 107, 82, 1);
+    border: solid 1px white;
+    border-radius: 5px;
+  }
 
-#container-table table {
-  /* position: absolute; */
-  margin-left: 7%;
-  margin-top: -8%;
-  width: 85%;
+  #container-table {
+    padding-top: 30%;
+    width: 100%;
+    height: fit-content;
+  }
+
+  #container-table table {
+    margin-left: 7%;
+    margin-top: -8%;
+    width: 85%;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 2%;
+  }
+
+  thead :nth-child(9) {
+    border-right: none;
+  }
+
+  table th {
+    border-right: 1px solid white;
+  }
+
+  table th,
+  td {
+    padding: 6px;
+    text-align: center;
+  }
+
+  table td {
+    border-bottom: 1px solid white;
+    color: rgb(35, 177, 144);
+  }
+
+  #container-table table button {
+    border: none;
+    background-color: rgb(0, 18, 3);
+  }
+
+  #btn-editar {
+    margin-right: 4px;
+  }
 }

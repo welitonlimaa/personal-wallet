@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import WalletForm from '../components/WalletForm';
 import Table from '../components/Table';
+import TableMobile from '../components/TableMobile';
 
 class Wallet extends React.Component {
   constructor() {
@@ -27,8 +28,8 @@ class Wallet extends React.Component {
           <WalletForm changeStateEditar={ this.changeStateEditar } editar={ editar } />
         </div>
         <div className="container-wallet">
-          {/* <div id="container">{}</div> */}
           <Table changeStateEditar={ this.changeStateEditar } />
+          <TableMobile changeStateEditar={ this.changeStateEditar } />
         </div>
       </div>
     );
