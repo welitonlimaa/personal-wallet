@@ -2,19 +2,29 @@ Link de acesso à aplicação: https://welitonlimaa.github.io/personal-wallet
 <details>
   <summary><strong>👨‍💻 O que foi desenvolvido </strong></summary><br />
 
-   Através da aplicação é possivel acessar uma lista com filtros de planetas do universo de Star Wars usando **Context API e Hooks** para controlar os estados globais.
+    Foi desenvolvido carteira de controle de gastos com conversor de moedas, ao utilizar essa aplicação um usuário deverá ser capaz de:
+
+  - Adicionar, remover e editar um gasto;
+  - Visualizar uma tabelas com seus gastos;
+  - Visualizar o total de gastos convertidos para uma moeda de escolha;
   
 
 </details>
 <details>
   <summary><strong>:memo: Habilidades Envolvidas </strong></summary><br />
 
-  * Utilização a _Context API_ do **React** para gerenciar estado.
-  * Utilização do _React Hook useState_;
-  * Utilização do _React Hook useContext_;
-  * Utilização do _React Hook useEffect_;
-  * Criação de _React Hooks_ customizados.
-  * Criação de testes para garantir que a aplicação possua uma boa cobertura de testes.
+- Criação de um _store_ Redux em uma aplicação React
+
+- Criação de _reducers_ no Redux em aplicação React
+
+- Criação de _actions_ no Redux em uma aplicação React
+
+- Criação de _dispatchers_ no Redux em uma aplicação React
+
+- Conectar Redux aos componentes React
+
+- Criação de _actions_ assíncronas em uma aplicação React que faz uso de Redux.
+    
 </details>
 <details>
   <summary><strong>‼️ Acessando Localmente</strong></summary><br />
