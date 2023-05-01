@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/personal-wallet/static/css/main.c3e91769.css",
-    "main.js": "/personal-wallet/static/js/main.94500a76.js",
+    "main.js": "/personal-wallet/static/js/main.d4850d8f.js",
     "static/media/back-img.jpg": "/personal-wallet/static/media/back-img.9eb5a35aa1d1fc07753b.jpg",
     "static/media/tela.jpg": "/personal-wallet/static/media/tela.2f8e2151201433297486.jpg",
     "static/media/logo.png": "/personal-wallet/static/media/logo.a40cbdf96436b6c1347f.png",
     "index.html": "/personal-wallet/index.html",
     "main.c3e91769.css.map": "/personal-wallet/static/css/main.c3e91769.css.map",
-    "main.94500a76.js.map": "/personal-wallet/static/js/main.94500a76.js.map"
+    "main.d4850d8f.js.map": "/personal-wallet/static/js/main.d4850d8f.js.map"
   },
   "entrypoints": [
     "static/css/main.c3e91769.css",
-    "static/js/main.94500a76.js"
+    "static/js/main.d4850d8f.js"
   ]
 }
